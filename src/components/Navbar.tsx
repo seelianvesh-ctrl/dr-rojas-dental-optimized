@@ -143,10 +143,12 @@ export const Navbar: React.FC = () => {
             </a>
 
             <a
-              href="#booking"
-              onClick={(e) => handleNavClick(e, '#booking')}
-              className="inline-flex items-center gap-2 bg-[#D97706] hover:bg-[#B45309] text-white text-14px font-accent font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-95"
+              href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all hover:scale-105"
             >
+              <MessageCircle className="w-4 h-4 fill-white" />
               <span>Book Appointment</span>
             </a>
           </div>

@@ -21,22 +21,22 @@ export const FloatingActions: React.FC = () => {
 
   return (
     <>
-      {/* Bottom-Right Floating WhatsApp Button with Pulse Animation */}
-      <div className="fixed bottom-20 sm:bottom-8 right-5 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+      {/* Bottom-Right Floating WhatsApp Button - Text Always Visible */}
+      <div className="fixed bottom-20 sm:bottom-8 right-4 sm:right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
         <a
           href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-transform hover:scale-110 active:scale-95"
+          className="relative flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white py-3 px-4 sm:py-3.5 sm:px-5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white/25"
           aria-label="Book on WhatsApp"
         >
-          {/* Pulse Ripple Effect */}
-          <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-75 animate-ping pointer-events-none" />
+          {/* Subtle pulse ring */}
+          <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-60 animate-ping pointer-events-none" />
           
-          <MessageCircle className="w-6 h-6 fill-white text-white relative z-10" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 fill-white text-white relative z-10 shrink-0" />
           
-          {/* Hover Tooltip Badge on Desktop */}
-          <span className="hidden sm:inline font-accent text-xs font-bold whitespace-nowrap bg-stone-900 text-white px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          {/* Permanent Visible Label */}
+          <span className="font-accent text-xs sm:text-sm font-bold whitespace-nowrap text-white relative z-10 tracking-wide">
             Book on WhatsApp
           </span>
         </a>
@@ -46,7 +46,7 @@ export const FloatingActions: React.FC = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-20 sm:bottom-8 left-5 z-40 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-xl border border-stone-200 transition-all hover:scale-105 active:scale-95"
+          className="fixed bottom-20 sm:bottom-8 left-5 z-40 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-xl border border-stone-200 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Scroll Back to Top"
         >
           <ArrowUp className="w-5 h-5" />
