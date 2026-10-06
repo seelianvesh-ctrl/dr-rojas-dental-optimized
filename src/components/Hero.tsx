@@ -1,8 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, ShieldCheck, ArrowRight, Phone, MessageCircle, Sparkles, MapPin, AlertCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const Hero: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    const checkOpenStatus = () => {
+      try {
+        const now = new Date();
+        const options: Intl.DateTimeFormatOptions = { 
+          timeZone: 'Asia/Kolkata', 
+          hour12: false, 
+          weekday: 'short', 
+          hour: 'numeric', 
+          minute: 'numeric' 
+        };
+        const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
+        
+        let weekday = '';
+        let hour = 0;
+        let minute = 0;
+        for (const p of parts) {
+          if (p.type === 'weekday') weekday = p.value;
+          if (p.type === 'hour') hour = parseInt(p.value, 10);
+          if (p.type === 'minute') minute = parseInt(p.value, 10);
+        }
+        
+        const totalMinutes = hour * 60 + minute;
+        if (weekday === 'Sun') {
+          // Sunday: 9:00 AM – 5:00 PM (540 to 1020 mins)
+          setIsOpen(totalMinutes >= 540 && totalMinutes < 1020);
+        } else {
+          // Mon – Sat: 9:00 AM – 9:00 PM (540 to 1260 mins)
+          setIsOpen(totalMinutes >= 540 && totalMinutes < 1260);
+        }
+      } catch (e) {
+        const now = new Date();
+        const day = now.getDay();
+        const mins = now.getHours() * 60 + now.getMinutes();
+        setIsOpen(day === 0 ? (mins >= 540 && mins < 1020) : (mins >= 540 && mins < 1260));
+      }
+    };
+
+    checkOpenStatus();
+    const interval = setInterval(checkOpenStatus, 60000); // Check every minute
+    return () => clearInterval(interval);
+  }, []);
   const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
@@ -120,9 +164,17 @@ export const Hero: React.FC = () => {
                     <p className="text-xs text-stone-600 font-accent">BDS • AP Dental Council Reg. A30469</p>
                     <p className="text-xs text-emerald-700 font-medium font-accent mt-0.5">Telugu, English & Hindi</p>
                   </div>
-                  <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-300">
-                    Clinic Open
-                  </span>
+                  {isOpen ? (
+                    <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full border border-emerald-300 shadow-xs">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>Open Now</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 bg-stone-100 text-stone-600 text-xs font-bold px-3 py-1 rounded-full border border-stone-300 shadow-xs">
+                      <span className="w-2 h-2 rounded-full bg-stone-400" />
+                      <span>Closed Now</span>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
