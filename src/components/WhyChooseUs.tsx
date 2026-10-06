@@ -55,11 +55,11 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 lg:py-28 bg-[#FAFAF9] relative overflow-hidden scroll-mt-28">
+    <section id="why-us" className="py-12 sm:py-16 lg:py-20 bg-[#FAFAF9] relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
           <div className="inline-flex items-center gap-2 text-[#D97706] font-accent font-semibold text-xs sm:text-sm tracking-widest uppercase bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200">
             <span>THE DR. ROJA DIFFERENCE</span>
           </div>

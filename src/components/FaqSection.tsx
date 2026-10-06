@@ -44,11 +44,11 @@ export const FaqSection: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#FAFAF9] relative scroll-mt-28">
+    <section id="faq" className="py-12 sm:py-16 lg:py-20 bg-[#FAFAF9] relative scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
           <div className="inline-flex items-center gap-2 text-[#0891B2] font-accent font-semibold text-xs sm:text-sm tracking-widest uppercase bg-cyan-50 px-4 py-1.5 rounded-full border border-cyan-200">
             <HelpCircle className="w-4 h-4 text-[#0891B2]" />
             <span>FREQUENTLY ASKED QUESTIONS</span>

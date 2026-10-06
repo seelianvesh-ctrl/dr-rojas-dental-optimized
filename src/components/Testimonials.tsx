@@ -16,11 +16,11 @@ export const Testimonials: React.FC = () => {
   const currentReview = REVIEWS[currentIndex];
 
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-[#F5F5F4] relative overflow-hidden scroll-mt-28">
+    <section id="reviews" className="py-12 sm:py-16 lg:py-20 bg-[#F5F5F4] relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
           <div className="inline-flex items-center gap-2 text-amber-700 font-accent font-semibold text-xs sm:text-sm tracking-widest uppercase bg-amber-100/80 px-4 py-1.5 rounded-full border border-amber-300">
             <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
             <span>5.0 PERFECT GOOGLE RATING</span>

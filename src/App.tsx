@@ -6,7 +6,6 @@ import { ServicesSection } from './components/ServicesSection';
 import { AboutSection } from './components/AboutSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { Testimonials } from './components/Testimonials';
-import { BeforeAfterGallery } from './components/BeforeAfterGallery';
 import { BookingSection } from './components/BookingSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactLocation } from './components/ContactLocation';
@@ -24,7 +23,6 @@ export default function App() {
         <AboutSection />
         <WhyChooseUs />
         <Testimonials />
-        <BeforeAfterGallery />
         <BookingSection />
         <FaqSection />
         <ContactLocation />

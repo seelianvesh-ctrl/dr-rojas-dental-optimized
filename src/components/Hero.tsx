@@ -6,7 +6,7 @@ export const Hero: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
-    <section className="relative bg-[#0C4A6E] text-white overflow-hidden hero-mesh bg-noise pt-8 pb-20 lg:pt-14 lg:pb-32">
+    <section className="relative bg-[#0C4A6E] text-white overflow-hidden hero-mesh bg-noise pt-6 pb-14 lg:pt-10 lg:pb-20">
       {/* Decorative SVG Ambient Orbs */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />

@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book a dental consultation at your clinic.");
 
   return (
-    <footer className="bg-[#0C4A6E] text-white relative overflow-hidden pt-16 pb-12 border-t border-cyan-900">
+    <footer className="bg-[#0C4A6E] text-white relative overflow-hidden pt-12 pb-8 border-t border-cyan-900">
       
       {/* Background Decorative Tooth SVG Watermark */}
       <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none">
@@ -23,13 +23,16 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand & Credentials (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-400 to-[#0891B2] text-white">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2C8 2 6 4 6 8C6 11 7.5 13 8 16C8.5 19 9.5 22 11 22C11.5 22 12 20.5 12 19C12 20.5 12.5 22 13 22C14.5 22 15.5 19 16 16C16.5 13 18 11 18 8C18 4 16 2 12 2Z" />
-                </svg>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Dr. Roja's Dental Clinic Logo"
+                className="h-10 sm:h-12 w-auto object-contain rounded-xl border border-amber-400/40 bg-black/40"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
               <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                Dr. Roja's <span className="text-cyan-300">Dental Clinic</span>
+                Dr. Roja's <span className="text-amber-300">Dental Clinic</span>
               </span>
             </div>
 
@@ -76,11 +79,11 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-serif font-bold text-lg text-amber-300">Quick Links</h4>
             <ul className="space-y-2 text-sm font-sans text-cyan-100">
-              <li><a href="#about" className="hover:text-amber-300 transition-colors">About Dr. Yenneti Roja</a></li>
+              <li><a href="#about" className="hover:text-amber-300 transition-colors">About Doctor</a></li>
               <li><a href="#services" className="hover:text-amber-300 transition-colors">Clear Aligners & Services</a></li>
               <li><a href="#why-us" className="hover:text-amber-300 transition-colors">Why Choose Us</a></li>
               <li><a href="#reviews" className="hover:text-amber-300 transition-colors">Patient Testimonials</a></li>
-              <li><a href="#gallery" className="hover:text-amber-300 transition-colors">Smile Transformations</a></li>
+              
               <li><a href="#booking" className="hover:text-amber-300 transition-colors">Book Appointment</a></li>
               <li><a href="#contact" className="hover:text-amber-300 transition-colors">Location & Timings</a></li>
             </ul>

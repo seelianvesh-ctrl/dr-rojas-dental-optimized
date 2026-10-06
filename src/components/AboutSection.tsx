@@ -5,7 +5,7 @@ import drRojaImg from '../assets/dr-roja.png';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#FAFAF9] relative overflow-hidden scroll-mt-28">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-[#FAFAF9] relative overflow-hidden scroll-mt-20">
       
       {/* Decorative SVG Tooth Watermark in background */}
       <div className="absolute top-10 right-5 opacity-5 pointer-events-none text-[#0C4A6E]">

@@ -6,7 +6,7 @@ export const BookingSection: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
-    <section id="booking" className="py-20 lg:py-28 bg-[#0C4A6E] text-white relative overflow-hidden bg-noise hero-mesh scroll-mt-28">
+    <section id="booking" className="py-12 sm:py-16 lg:py-20 bg-[#0C4A6E] text-white relative overflow-hidden bg-noise hero-mesh scroll-mt-20">
       {/* Decorative Ambient Orbs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />

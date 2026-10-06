@@ -15,13 +15,12 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About Dr. Roja', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Why Choose Us', href: '#why-us' },
-    { name: 'Patient Reviews', href: '#reviews' },
-    { name: 'Smile Gallery', href: '#gallery' },
+    { name: 'About Doctor', href: '#about' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Reviews', href: '#reviews' },
     { name: 'FAQs', href: '#faq' },
-    { name: 'Location & Contact', href: '#contact' },
+    { name: 'Location', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -29,7 +28,7 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
-      const headerOffset = 100;
+      const headerOffset = 80;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -55,7 +54,7 @@ export const Navbar: React.FC = () => {
             <span className="hidden md:inline text-cyan-200/60">•</span>
             <span className="hidden md:inline-flex items-center gap-1 text-cyan-100">
               <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-              Kurmannapalem, Gajuwaka, Visakhapatnam
+              Kurmannapalem, Visakhapatnam
             </span>
           </div>
 
@@ -77,37 +76,52 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Glass Navbar */}
+      {/* Main Navbar */}
       <nav 
         className={`transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#FAFAF9]/95 backdrop-blur-md shadow-md py-3 border-b border-stone-200' 
-            : 'bg-[#0C4A6E]/90 backdrop-blur-sm py-4 border-b border-cyan-900/50 text-white'
+            ? 'bg-[#FAFAF9]/95 backdrop-blur-md shadow-md py-2.5 border-b border-stone-200' 
+            : 'bg-[#0C4A6E]/95 backdrop-blur-sm py-3 border-b border-cyan-900/50 text-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo */}
+          {/* Brand Logo & Name - High Contrast on all backgrounds */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className={`p-2.5 rounded-2xl transition-transform duration-300 group-hover:scale-105 ${
-              isScrolled ? 'bg-[#0C4A6E] text-white shadow-sm' : 'bg-gradient-to-br from-cyan-500 to-[#0891B2] text-white'
-            }`}>
-              {/* Custom Tooth SVG Icon */}
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2C8 2 6 4 6 8C6 11 7.5 13 8 16C8.5 19 9.5 22 11 22C11.5 22 12 20.5 12 19C12 20.5 12.5 22 13 22C14.5 22 15.5 19 16 16C16.5 13 18 11 18 8C18 4 16 2 12 2Z" />
-                <path d="M8.5 8.5C9.5 7.5 11 7 12 7" strokeLinecap="round" opacity="0.6" />
-              </svg>
+            {/* Clinic Logo */}
+            <div className="relative">
+              <img
+                src="/logo.png"
+                alt="Dr. Roja's Dental Clinic Logo"
+                className="h-10 sm:h-12 w-auto object-contain rounded-xl shadow-md border border-amber-400/40 bg-black/40"
+                onError={(e) => {
+                  // Fallback to custom tooth icon if logo image is not found
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.parentElement?.querySelector('.logo-fallback') as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div 
+                className={`logo-fallback hidden p-2.5 rounded-2xl transition-transform duration-300 group-hover:scale-105 ${
+                  isScrolled ? 'bg-[#0C4A6E] text-white shadow-sm' : 'bg-gradient-to-br from-amber-400 to-amber-600 text-stone-900 shadow-md'
+                }`}
+              >
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2C8 2 6 4 6 8C6 11 7.5 13 8 16C8.5 19 9.5 22 11 22C11.5 22 12 20.5 12 19C12 20.5 12.5 22 13 22C14.5 22 15.5 19 16 16C16.5 13 18 11 18 8C18 4 16 2 12 2Z" />
+                </svg>
+              </div>
             </div>
+
             <div>
-              <span className={`block font-serif text-xl sm:text-22px font-bold tracking-tight leading-none ${
+              <span className={`block font-serif text-xl sm:text-2xl font-bold tracking-tight leading-none ${
                 isScrolled ? 'text-[#0C4A6E]' : 'text-white'
               }`}>
-                Dr. Roja's <span className="text-[#0891B2]">Dental Clinic</span>
+                Dr. Roja's <span className={isScrolled ? 'text-amber-600' : 'text-amber-300'}>Dental Clinic</span>
               </span>
-              <span className={`block text-11px font-accent tracking-wider uppercase mt-1 ${
-                isScrolled ? 'text-stone-500' : 'text-cyan-200/80'
+              <span className={`block text-[11px] font-accent font-semibold tracking-wider uppercase mt-1 ${
+                isScrolled ? 'text-stone-600' : 'text-amber-100/90'
               }`}>
-                Gajuwaka, Visakhapatnam • BDS (Reg. A30469)
+                KURMANNAPALEM • BDS (REG. A30469)
               </span>
             </div>
           </a>
@@ -119,7 +133,7 @@ export const Navbar: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-14px font-medium transition-colors hover:text-amber-500 ${
+                className={`text-sm font-accent font-semibold transition-colors hover:text-amber-400 ${
                   isScrolled ? 'text-stone-700' : 'text-stone-100 hover:text-amber-300'
                 }`}
               >
@@ -128,81 +142,82 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Right Action CTA */}
+          {/* Right Header CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href={`tel:${CLINIC_INFO.phone1Raw}`}
-              className={`p-2.5 rounded-full border transition-all ${
+              className={`flex items-center gap-2 text-xs font-accent font-semibold py-2 px-3 rounded-xl border transition-colors ${
                 isScrolled 
-                  ? 'border-stone-300 text-stone-700 hover:bg-stone-100' 
-                  : 'border-cyan-700 text-cyan-100 hover:bg-cyan-800/50'
+                  ? 'border-stone-300 text-stone-800 hover:bg-stone-100' 
+                  : 'border-white/30 text-white hover:bg-white/10'
               }`}
-              title="Call Clinic Now"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5 text-amber-400" />
+              <span>{CLINIC_INFO.phone1}</span>
             </a>
 
             <a
               href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Book Appointment</span>
             </a>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg ${
-              isScrolled ? 'text-stone-800 hover:bg-stone-100' : 'text-white hover:bg-cyan-800'
+            className={`lg:hidden p-2 rounded-xl transition-colors ${
+              isScrolled ? 'text-stone-800 hover:bg-stone-100' : 'text-white hover:bg-cyan-900/50'
             }`}
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
+
         </div>
-
-        {/* Mobile Nav Slide-Down Drawer */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0C4A6E] text-white border-b border-cyan-800 px-6 py-6 shadow-2xl space-y-4 animate-in slide-in-from-top duration-300">
-            <div className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-base font-medium text-cyan-100 hover:text-amber-400 py-1 border-b border-cyan-800/50"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-
-            <div className="pt-3 flex flex-col gap-3">
-              <a
-                href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-accent font-semibold py-3 rounded-xl shadow-md"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span>Book on WhatsApp</span>
-              </a>
-
-              <a
-                href={`tel:${CLINIC_INFO.phone1Raw}`}
-                className="w-full flex items-center justify-center gap-2 border border-cyan-600 hover:bg-cyan-800/60 text-cyan-100 font-accent font-medium py-3 rounded-xl"
-              >
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span>Call: {CLINIC_INFO.phone1}</span>
-              </a>
-            </div>
-          </div>
-        )}
       </nav>
+
+      {/* Mobile Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#0C4A6E] text-white border-b border-cyan-800 px-6 py-6 space-y-4 shadow-2xl animate-fadeIn">
+          <div className="flex flex-col space-y-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-base font-accent font-semibold py-2 border-b border-cyan-800/60 text-stone-100 hover:text-amber-300"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          <div className="pt-2 flex flex-col gap-3">
+            <a
+              href={`tel:${CLINIC_INFO.phone1Raw}`}
+              className="w-full flex items-center justify-center gap-2 bg-white/10 text-white font-accent font-semibold text-sm py-3 px-4 rounded-xl border border-white/20"
+            >
+              <Phone className="w-4 h-4 text-amber-400" />
+              <span>Call Clinic: {CLINIC_INFO.phone1}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-sm py-3.5 px-4 rounded-xl shadow-md"
+            >
+              <MessageCircle className="w-5 h-5 fill-white" />
+              <span>Book on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
