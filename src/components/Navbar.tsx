@@ -20,6 +20,7 @@ export const Navbar: React.FC = () => {
     { name: 'Why Choose Us', href: '#why-us' },
     { name: 'Patient Reviews', href: '#reviews' },
     { name: 'Smile Gallery', href: '#gallery' },
+    { name: 'FAQs', href: '#faq' },
     { name: 'Location & Contact', href: '#contact' },
   ];
 
@@ -39,7 +40,7 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book a dental appointment at your Kurmannapalem clinic.");
+  const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
@@ -49,7 +50,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <span className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full font-semibold border border-amber-400/30">
               <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-              5.0 Rated on Google (18 Reviews)
+              5.0 Rated on Google (25+ Reviews)
             </span>
             <span className="hidden md:inline text-cyan-200/60">•</span>
             <span className="hidden md:inline-flex items-center gap-1 text-cyan-100">

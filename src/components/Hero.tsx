@@ -3,7 +3,7 @@ import { Star, ShieldCheck, ArrowRight, Phone, MessageCircle, Sparkles, MapPin, 
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const Hero: React.FC = () => {
-  const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book an appointment for dental consultation.");
+  const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
     <section className="relative bg-[#0C4A6E] text-white overflow-hidden hero-mesh bg-noise pt-8 pb-20 lg:pt-14 lg:pb-32">

@@ -220,11 +220,28 @@ export const BookingSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={submitted}
-                  className="w-full flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#B45309] text-white font-accent font-bold text-base py-4 rounded-xl shadow-lg transition-all transform active:scale-95"
+                  className="w-full flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#B45309] text-white font-accent font-bold text-base py-4 rounded-xl shadow-lg transition-all transform active:scale-95 cursor-pointer"
                 >
                   <MessageCircle className="w-5 h-5 fill-white" />
                   <span>{submitted ? 'Opening WhatsApp...' : 'Confirm & Book on WhatsApp →'}</span>
                 </button>
+
+                {/* 1-Click WhatsApp Shortcut */}
+                <div className="relative flex py-1 items-center">
+                  <div className="flex-grow border-t border-stone-200"></div>
+                  <span className="flex-shrink mx-3 text-xs font-accent text-stone-500 uppercase tracking-wider font-semibold">Or Skip The Form</span>
+                  <div className="flex-grow border-t border-stone-200"></div>
+                </div>
+
+                <a
+                  href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${directWhatsappMsg}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-sm py-3.5 rounded-xl shadow-md transition-all transform hover:scale-[1.01] active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Chat Directly with Dr. Roja on WhatsApp</span>
+                </a>
 
               </form>
 

@@ -119,7 +119,7 @@ export const AboutSection: React.FC = () => {
               </div>
 
               <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-xs text-center">
-                <p className="font-serif font-bold text-xl sm:text-2xl text-[#0C4A6E] mb-1">8+ Yrs</p>
+                <p className="font-serif font-bold text-xl sm:text-2xl text-[#0C4A6E] mb-1">9+ Yrs</p>
                 <p className="text-xs text-stone-500 font-accent uppercase font-medium">Clinical Excellence</p>
               </div>
 

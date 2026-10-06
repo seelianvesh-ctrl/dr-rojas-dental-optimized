@@ -29,7 +29,7 @@ export const Testimonials: React.FC = () => {
             What Our Patients Say
           </h2>
           <p className="text-stone-600 text-base sm:text-lg font-sans">
-            {CLINIC_INFO.reviewsCount} five-star reviews on Google Maps. Read authentic experiences from families across Kurmannapalem, Duvvada, Ukkunagaram & Gajuwaka.
+            {CLINIC_INFO.reviewsCount}+ five-star reviews on Google Maps. Read authentic experiences from families across Kurmannapalem, Duvvada, Ukkunagaram & Gajuwaka.
           </p>
         </div>
 

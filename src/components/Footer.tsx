@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
 
             <div className="inline-flex items-center gap-2 bg-amber-500/10 text-amber-300 border border-amber-400/30 px-3.5 py-1.5 rounded-xl text-xs font-accent">
               <Star className="w-3.5 h-3.5 fill-amber-300" />
-              <span>5.0 Rated on Google Maps ({CLINIC_INFO.reviewsCount} Verified Reviews)</span>
+              <span>5.0 Rated on Google Maps ({CLINIC_INFO.reviewsCount}+ Verified Reviews)</span>
             </div>
 
             {/* Social / Direct Action Pills */}

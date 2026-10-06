@@ -2,12 +2,13 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustMarquee } from './components/TrustMarquee';
-import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
+import { AboutSection } from './components/AboutSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { Testimonials } from './components/Testimonials';
 import { BeforeAfterGallery } from './components/BeforeAfterGallery';
 import { BookingSection } from './components/BookingSection';
+import { FaqSection } from './components/FaqSection';
 import { ContactLocation } from './components/ContactLocation';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
@@ -19,12 +20,13 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <TrustMarquee />
-        <AboutSection />
         <ServicesSection />
+        <AboutSection />
         <WhyChooseUs />
         <Testimonials />
         <BeforeAfterGallery />
         <BookingSection />
+        <FaqSection />
         <ContactLocation />
       </main>
       <Footer />

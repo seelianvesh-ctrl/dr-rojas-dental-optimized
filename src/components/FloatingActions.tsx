@@ -17,7 +17,7 @@ export const FloatingActions: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book a dental appointment at your Kurmannapalem clinic.");
+  const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
 
   return (
     <>
