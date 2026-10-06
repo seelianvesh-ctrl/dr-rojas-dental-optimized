@@ -195,8 +195,9 @@ export const BookingSection: React.FC = () => {
                       onChange={(e) => setFormState({ ...formState, timeSlot: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-stone-300 focus:border-[#0891B2] focus:ring-2 focus:ring-cyan-200 outline-none text-sm font-sans bg-white"
                     >
-                      <option value="Morning (9:00 AM – 1:00 PM)">Morning Session (9:00 AM – 1:00 PM)</option>
-                      <option value="Evening (5:00 PM – 9:00 PM)">Evening Session (5:00 PM – 9:00 PM)</option>
+                      <option value="Morning (9:00 AM – 1:00 PM)">Morning (9:00 AM – 1:00 PM)</option>
+                      <option value="Afternoon (1:00 PM – 5:00 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
+                      <option value="Evening (5:00 PM – 9:00 PM)">Evening (5:00 PM – 9:00 PM)</option>
                     </select>
                   </div>
                 </div>

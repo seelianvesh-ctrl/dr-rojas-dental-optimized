@@ -104,8 +104,8 @@ export const Footer: React.FC = () => {
 
             <div className="pt-2">
               <p className="text-xs font-accent text-amber-300 font-semibold mb-1">Clinic Timings:</p>
-              <p className="text-xs text-cyan-200">Mon–Sat: 9:00 AM – 1:00 PM & 5:00 PM – 9:00 PM</p>
-              <p className="text-xs text-cyan-200">Sunday: 9:00 AM – 1:00 PM</p>
+              <p className="text-xs text-cyan-200">Mon–Sat: 9:00 AM – 9:00 PM</p>
+              <p className="text-xs text-cyan-200">Sunday: 9:00 AM – 5:00 PM</p>
             </div>
           </div>
 

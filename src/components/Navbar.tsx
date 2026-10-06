@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4 text-cyan-100">
             <span className="hidden lg:inline-flex items-center gap-1 text-xs">
               <Clock className="w-3.5 h-3.5 text-amber-400" />
-              Mon–Sat: 9am–1pm & 5pm–9pm
+              Mon–Sat: 9am–9pm | Sun: 9am–5pm
             </span>
             <a 
               href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}

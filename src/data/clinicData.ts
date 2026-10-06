@@ -19,11 +19,11 @@ export const CLINIC_INFO = {
   languages: "Telugu, English & Hindi",
   areasServed: "Kurmannapalem, Duvvada, Ukkunagaram (Steel Plant Township), Gajuwaka, Vadlapudi & Aganampudi",
   hours: [
-    { days: "Monday – Saturday", time: "9:00 AM – 1:00 PM & 5:00 PM – 9:00 PM" },
-    { days: "Sunday", time: "9:00 AM – 1:00 PM (Morning Appointments Available)" }
+    { days: "Monday – Saturday", time: "9:00 AM – 9:00 PM" },
+    { days: "Sunday", time: "9:00 AM – 5:00 PM" }
   ],
-  googleMapsUrl: "https://maps.google.com/?cid=18218738378875556941",
-  embedMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3802.203649514781!2d83.1557008!3d17.6974151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a396985ce3b83d7%3A0xfce7f4b005e6544d!2sDr.%20Roja's%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000"
+  googleMapsUrl: "https://maps.app.goo.gl/mtauKva9JUmjKvuN6",
+  embedMapUrl: "https://maps.google.com/maps?q=Dr.+Roja's+Dental+Clinic+Kurmannapalem+Visakhapatnam&t=&z=15&ie=UTF8&iwloc=&output=embed"
 };
 
 export const SERVICES: ServiceItem[] = [
@@ -134,19 +134,19 @@ export const REVIEWS: ReviewItem[] = [
     author: "Priya S.",
     location: "Kurmannapalem, Visakhapatnam",
     rating: 5,
-    date: "2 weeks ago",
+    date: "August 2026",
     treatment: "Painless Root Canal",
-    text: "I was terrified of dentists my whole life. Dr. Roja made me feel so comfortable that I actually didn't feel the root canal at all! The clinic on Duvvada station road is spotless clean, the staff is warm, and she explains every step before starting. Highly recommended in Kurmannapalem!",
+    text: "Dr. Roja was extremely gentle, professional, and ensured the procedure was completely painless. Highly recommend this place for anyone looking for quality dental care in Kurmannapalem!",
     verified: true
   },
   {
     id: "rev-2",
     author: "Ravi Kumar M.",
-    location: "Steel Plant Township (Ukkunagaram)",
+    location: "Ukkunagaram (Steel Plant Township)",
     rating: 5,
-    date: "1 month ago",
+    date: "July 2026",
     treatment: "Dental Implants",
-    text: "Got my dental implants done here. The whole process was exceptionally smooth — from the 3D diagnosis to the final crown fitting. Dr. Roja is highly skilled, gentle, and uses modern equipment. Price was very fair and transparent compared to corporate dental hospitals in Vizag.",
+    text: "Dr. Roja and the team were professional, caring, and made me feel comfortable throughout my treatment. Modern equipment, spotless hygiene, and very fair pricing compared to corporate hospitals in Vizag.",
     verified: true
   },
   {
@@ -154,9 +154,9 @@ export const REVIEWS: ReviewItem[] = [
     author: "Lakshmi Devi P.",
     location: "Gajuwaka, Visakhapatnam",
     rating: 5,
-    date: "2 months ago",
-    treatment: "Family Dental Care & Dentures",
-    text: "Took my whole family here — my elderly father for custom dentures, my kids for check-ups, and myself for cleaning. Dr. Roja communicates very warmly in Telugu and handles every age group with extreme patience. She never pushes unnecessary treatments!",
+    date: "August 2026",
+    treatment: "Family Dental Care & Scaling",
+    text: "Warm & Professional. I had a wonderful experience with the dental treatment provided by Dr. Roja. Best budget-friendly clinic with 24/7 assistance and latest digital equipment in Kurmannapalem.",
     verified: true
   },
   {
@@ -164,19 +164,19 @@ export const REVIEWS: ReviewItem[] = [
     author: "Srinivas Rao K.",
     location: "Duvvada, Visakhapatnam",
     rating: 5,
-    date: "3 months ago",
-    treatment: "Crowns & Scaling",
-    text: "Dr. Yenneti Roja is a gem of a doctor. She takes time to explain the diagnosis clearly. Teeth scaling was completely painless, and my ceramic crown fits perfectly without any discomfort. Very convenient location near Kurmannapalem junction.",
+    date: "August 2026",
+    treatment: "Root Canal & Ceramic Crown",
+    text: "Had very good experience with doctor treatment.. Doctor Roja and her team is very helpful and friendly while treating patients. The clinic on Duvvada station road is very easy to locate.",
     verified: true
   },
   {
     id: "rev-5",
     author: "Anand Verma",
-    location: "Sector 6, Ukkunagaram",
+    location: "Sector 6, Steel Plant",
     rating: 5,
-    date: "3 months ago",
-    treatment: "Clear Aligners Consultation",
-    text: "Visited for clear aligner consultation. Dr. Roja explained the timeline, maintenance, and costing with total clarity. The clinic maintains strict sterilization and the team speaks fluent Hindi and English as well, which was very comforting.",
+    date: "July 2026",
+    treatment: "Clear Aligners & Teeth Whitening",
+    text: "Best dental clinic in Kurmannapalem. Dr. Roja explained the clear aligners procedure with complete honesty. Speaking Telugu, Hindi and English makes communication effortless for everyone.",
     verified: true
   }
 ];
