@@ -1,0 +1,8 @@
+{
+  "name": "Remix Dr. Roja\u0027s Dental Clinic",
+  "description": "5-star rated dental clinic in Kurmannapalem, Gajuwaka, Visakhapatnam by Dr. Yenneti Roja (BDS).",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
