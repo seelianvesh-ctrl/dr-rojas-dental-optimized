@@ -7,40 +7,24 @@ declare global {
   }
 }
 
-/* ── Bootstrap ─────────────────────────────────────────────────────────── */
-
-/**
- * Load the GA4 gtag.js snippet and wire up the dataLayer.
- * Skipped in development so local traffic doesn't pollute real analytics.
- */
+/** Load gtag.js and initialise GA4.  Skipped in dev. */
 export function initAnalytics(): void {
   if (!GA4_MEASUREMENT_ID || import.meta.env.DEV) return;
 
-  // Inject the remote gtag.js loader
   const script = document.createElement('script');
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
   document.head.appendChild(script);
 
-  // Initialise the dataLayer queue and gtag helper
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function () {
-    // eslint-disable-next-line prefer-rest-params
-    window.dataLayer.push(arguments);
+  window.gtag = function (...args: unknown[]) {
+    window.dataLayer.push(args);
   };
   window.gtag('js', new Date());
-  window.gtag('config', GA4_MEASUREMENT_ID, {
-    send_page_view: true,
-  });
+  window.gtag('config', GA4_MEASUREMENT_ID);
 }
 
-/* ── Generic event helper ──────────────────────────────────────────────── */
-
-/**
- * Fire an arbitrary GA4 event.
- * Silently no-ops when gtag hasn't loaded (e.g. during dev or if the
- * ad-blocker intercepted the script).
- */
+/** Fire a GA4 event.  No-op when gtag hasn't loaded. */
 export function trackEvent(
   eventName: string,
   params?: Record<string, string | number | boolean>,
@@ -49,31 +33,17 @@ export function trackEvent(
   window.gtag('event', eventName, params);
 }
 
-/* ── Conversion-ready CTA events ───────────────────────────────────────── */
-/*
- * Mark these three event names as conversions in GA4 after merging:
- *   GA4 → Admin → Events → toggle "Mark as conversion"
- *     • whatsapp_click
- *     • call_click
- *     • directions_click
- */
+/* Conversion-ready events — mark as conversions in GA4 → Admin → Events:
+ *   whatsapp_click · call_click · directions_click                    */
 
 export function trackWhatsAppClick(source: string): void {
-  trackEvent('whatsapp_click', {
-    source,
-    link_url: 'https://wa.me/918247491265',
-  });
+  trackEvent('whatsapp_click', { source });
 }
 
 export function trackCallClick(source: string): void {
-  trackEvent('call_click', {
-    source,
-    phone: '+918247491265',
-  });
+  trackEvent('call_click', { source });
 }
 
 export function trackDirectionsClick(): void {
-  trackEvent('directions_click', {
-    link_url: 'https://maps.app.goo.gl/mtauKva9JUmjKvuN6',
-  });
+  trackEvent('directions_click');
 }

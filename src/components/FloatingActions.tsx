@@ -22,8 +22,8 @@ export const FloatingActions: React.FC = () => {
 
   return (
     <>
-      {/* Bottom-Right Floating WhatsApp Button - Text Always Visible */}
-      <div className="fixed bottom-20 sm:bottom-8 right-4 sm:right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+      {/* Bottom-Right Floating WhatsApp Button — desktop only; mobile uses the bottom bar instead */}
+      <div className="hidden sm:flex fixed bottom-8 right-6 z-40 flex-col items-end gap-3 pointer-events-auto">
         <a
           href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
           target="_blank"
@@ -44,11 +44,11 @@ export const FloatingActions: React.FC = () => {
         </a>
       </div>
 
-      {/* Bottom-Left Back to Top Button */}
+      {/* Bottom-Left Back to Top Button — desktop only; mobile has the bottom bar */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-20 sm:bottom-8 left-5 z-40 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-xl border border-stone-200 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="hidden sm:block fixed bottom-8 left-5 z-40 bg-white/90 hover:bg-white text-stone-800 p-3 rounded-full shadow-xl border border-stone-200 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Scroll Back to Top"
         >
           <ArrowUp className="w-5 h-5" />

@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
               href={`https://wa.me/${CLINIC_INFO.whatsappNumber}?text=${whatsappMsg}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 transition-colors font-medium"
+              className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 transition-colors font-medium"
               onClick={() => trackWhatsAppClick('navbar-topbar')}
             >
               <MessageCircle className="w-3.5 h-3.5 fill-emerald-400" />
