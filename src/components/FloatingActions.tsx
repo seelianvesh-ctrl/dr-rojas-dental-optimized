@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, ArrowUp, Phone } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick } from '../lib/analytics';
 
 export const FloatingActions: React.FC = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -29,6 +30,7 @@ export const FloatingActions: React.FC = () => {
           rel="noopener noreferrer"
           className="relative flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white py-3 px-4 sm:py-3.5 sm:px-5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white/25"
           aria-label="Book on WhatsApp"
+          onClick={() => trackWhatsAppClick('floating-pill')}
         >
           {/* Subtle pulse ring */}
           <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-60 animate-ping pointer-events-none" />
@@ -58,6 +60,7 @@ export const FloatingActions: React.FC = () => {
         <a
           href={`tel:${CLINIC_INFO.phone1Raw}`}
           className="flex-1 flex items-center justify-center gap-2 bg-stone-100 hover:bg-stone-200 text-[#0C4A6E] font-accent font-bold text-xs py-3 rounded-xl border border-stone-300"
+          onClick={() => trackCallClick('mobile-bar')}
         >
           <Phone className="w-4 h-4 text-amber-600" />
           <span>Call Clinic</span>
@@ -68,6 +71,7 @@ export const FloatingActions: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-xs py-3 rounded-xl shadow-md"
+          onClick={() => trackWhatsAppClick('mobile-bar')}
         >
           <MessageCircle className="w-4 h-4 fill-white" />
           <span>Book WhatsApp</span>

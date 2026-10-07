@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Star, Menu, X, Clock, MapPin } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick } from '../lib/analytics';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,6 +69,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 transition-colors font-medium"
+              onClick={() => trackWhatsAppClick('navbar-topbar')}
             >
               <MessageCircle className="w-3.5 h-3.5 fill-emerald-400" />
               <span>WhatsApp Quick Book</span>
@@ -154,6 +156,7 @@ export const Navbar: React.FC = () => {
                   ? 'border-stone-300 text-stone-800 hover:bg-stone-100' 
                   : 'border-white/30 text-white hover:bg-white/10'
               }`}
+              onClick={() => trackCallClick('navbar-desktop')}
             >
               <Phone className="w-3.5 h-3.5 text-amber-400" />
               <span>{CLINIC_INFO.phone1}</span>
@@ -164,6 +167,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95"
+              onClick={() => trackWhatsAppClick('navbar-desktop')}
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Book Appointment</span>
@@ -204,6 +208,7 @@ export const Navbar: React.FC = () => {
             <a
               href={`tel:${CLINIC_INFO.phone1Raw}`}
               className="w-full flex items-center justify-center gap-2 bg-white/10 text-white font-accent font-semibold text-sm py-3 px-4 rounded-xl border border-white/20"
+              onClick={() => trackCallClick('navbar-mobile')}
             >
               <Phone className="w-4 h-4 text-amber-400" />
               <span>Call Clinic: {CLINIC_INFO.phone1}</span>
@@ -214,6 +219,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-sm py-3.5 px-4 rounded-xl shadow-md"
+              onClick={() => trackWhatsAppClick('navbar-mobile')}
             >
               <MessageCircle className="w-5 h-5 fill-white" />
               <span>Book on WhatsApp</span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, MessageCircle, Star, Heart } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick, trackDirectionsClick } from '../lib/analytics';
 
 export const Footer: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book a dental consultation at your clinic.");
@@ -57,6 +58,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white transition-colors"
                 title="WhatsApp Direct Chat"
+                onClick={() => trackWhatsAppClick('footer')}
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -64,6 +66,7 @@ export const Footer: React.FC = () => {
                 href={`tel:${CLINIC_INFO.phone1Raw}`}
                 className="p-2.5 rounded-xl bg-cyan-800 hover:bg-cyan-700 text-cyan-200 transition-colors"
                 title="Call Clinic"
+                onClick={() => trackCallClick('footer')}
               >
                 <Phone className="w-5 h-5" />
               </a>
@@ -73,6 +76,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 transition-colors"
                 title="View Google Maps"
+                onClick={() => trackDirectionsClick()}
               >
                 <MapPin className="w-5 h-5" />
               </a>
