@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Clock, CreditCard, Navigation, CheckCircle2, MessageCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick, trackDirectionsClick } from '../lib/analytics';
 
 export const ContactLocation: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi Dr. Roja, I would like to book a dental consultation at your clinic.");
@@ -63,6 +64,7 @@ export const ContactLocation: React.FC = () => {
                 <a 
                   href={`tel:${CLINIC_INFO.phone1Raw}`}
                   className="flex items-center justify-between p-3 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-[#0C4A6E] border border-cyan-200 transition-colors"
+                  onClick={() => trackCallClick('contact-section')}
                 >
                   <span>Phone Call: {CLINIC_INFO.phone1}</span>
                   <span className="text-xs bg-[#0C4A6E] text-white px-2.5 py-0.5 rounded-md">Call Now</span>
@@ -73,6 +75,7 @@ export const ContactLocation: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
+                  onClick={() => trackWhatsAppClick('contact-section')}
                 >
                   <span className="flex items-center gap-2">
                     <MessageCircle className="w-4 h-4 text-emerald-600" />
@@ -125,6 +128,7 @@ export const ContactLocation: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 bg-[#0C4A6E] hover:bg-[#0891B2] text-white font-accent font-bold py-3.5 px-6 rounded-2xl shadow-md transition-colors"
+              onClick={() => trackDirectionsClick()}
             >
               <Navigation className="w-4 h-4 text-amber-400" />
               <span>Get Directions on Google Maps →</span>

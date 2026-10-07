@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle, Phone, Clock, MapPin, Sparkles, CheckCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick } from '../lib/analytics';
 
 export const BookingSection: React.FC = () => {
   const whatsappMsg = encodeURIComponent("Hi, I want to book an appointment with Dr. Roja");
@@ -36,6 +37,7 @@ export const BookingSection: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-accent font-bold text-base py-4 px-8 rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-2 border-white/20"
+              onClick={() => trackWhatsAppClick('booking-section')}
             >
               <MessageCircle className="w-6 h-6 fill-white" />
               <span>Book on WhatsApp →</span>
@@ -44,6 +46,7 @@ export const BookingSection: React.FC = () => {
             <a
               href={`tel:${CLINIC_INFO.phone1Raw}`}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-cyan-300/40 hover:border-cyan-200 text-cyan-100 hover:text-white hover:bg-cyan-900/40 text-base font-accent font-medium py-4 px-7 rounded-2xl transition-all backdrop-blur-sm"
+              onClick={() => trackCallClick('booking-section')}
             >
               <Phone className="w-5 h-5 text-amber-400" />
               <span>Call {CLINIC_INFO.phone1}</span>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ShieldCheck, Phone, MessageCircle, Sparkles, MapPin, AlertCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
+import { trackWhatsAppClick, trackCallClick } from '../lib/analytics';
 
 export const Hero: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -106,6 +107,7 @@ export const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#D97706] hover:bg-[#B45309] text-white text-base font-accent font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-amber-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                onClick={() => trackWhatsAppClick('hero')}
               >
                 <MessageCircle className="w-5 h-5 fill-white" />
                 <span>Book on WhatsApp →</span>
@@ -114,6 +116,7 @@ export const Hero: React.FC = () => {
               <a
                 href={`tel:${CLINIC_INFO.phone1Raw}`}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-cyan-300/40 hover:border-cyan-200 text-cyan-100 hover:text-white hover:bg-cyan-900/40 text-base font-accent font-medium px-7 py-3.5 rounded-xl transition-all backdrop-blur-sm"
+                onClick={() => trackCallClick('hero')}
               >
                 <Phone className="w-4 h-4 text-amber-400" />
                 <span>Call {CLINIC_INFO.phone1}</span>
@@ -147,9 +150,8 @@ export const Hero: React.FC = () => {
             {/* Main Image Box */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/30 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-[#0C4A6E]">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000"
-                alt="Dr. Roja's Modern Dental Clinic Interior in Kurmannapalem Visakhapatnam"
-                referrerPolicy="no-referrer"
+                src="/clinic-interior.webp"
+                alt="Modern dental operatory with rose-pink dental chair"
                 width={1000}
                 height={1500}
                 fetchPriority="high"

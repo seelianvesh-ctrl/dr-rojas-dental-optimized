@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote, ExternalLink, CheckCircle } from 'lucide-react';
 import { REVIEWS, CLINIC_INFO } from '../data/clinicData';
+import { trackDirectionsClick } from '../lib/analytics';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,7 +55,7 @@ export const Testimonials: React.FC = () => {
 
                 <span className="inline-flex items-center gap-1.5 text-xs font-accent font-semibold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Verified Google Patient</span>
+                  <span>Sourced from Google Reviews</span>
                 </span>
               </div>
 
@@ -80,6 +81,7 @@ export const Testimonials: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-xs font-accent font-semibold text-[#0891B2] hover:text-[#0C4A6E]"
+                  onClick={() => trackDirectionsClick()}
                 >
                   <span>View on Google Maps</span>
                   <ExternalLink className="w-3.5 h-3.5" />
