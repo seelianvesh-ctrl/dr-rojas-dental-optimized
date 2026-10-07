@@ -91,8 +91,11 @@ export const Navbar: React.FC = () => {
             {/* Clinic Logo */}
             <div className="relative">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Dr. Roja's Dental Clinic Logo"
+                width={256}
+                height={256}
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain rounded-xl shadow-md border border-amber-400/40 bg-black/40"
                 onError={(e) => {
                   // Fallback to custom tooth icon if logo image is not found

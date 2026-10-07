@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, MessageCircle, Star, Heart, Award } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, Star, Heart } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const Footer: React.FC = () => {
@@ -24,8 +24,12 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Dr. Roja's Dental Clinic Logo"
+                width={256}
+                height={256}
+                loading="lazy"
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain rounded-xl border border-amber-400/40 bg-black/40"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

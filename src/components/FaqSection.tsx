@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, MessageCircle, Sparkles } from 'lucide-react';
+import { HelpCircle, ChevronDown, MessageCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 interface FaqItem {

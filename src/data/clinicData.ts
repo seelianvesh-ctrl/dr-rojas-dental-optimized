@@ -10,11 +10,10 @@ export const CLINIC_INFO = {
   reviewsCount: 25,
   address: "Door No: 30, 95-58, Appikonda R.H Colony, Kurmannapalem, Gajuwaka, Visakhapatnam, Andhra Pradesh - 530046",
   landmark: "Duvvada Railway Station Road, Near Kurmannapalem Junction (Opposite HP Petrol Bunk)",
-  phone: "+91 82474 91265",
-  phoneRaw: "918247491265",
+  // Single source of truth for the primary contact number.
+  // (Previously duplicated as `phone`/`phoneRaw`, which had drifted out of sync.)
   phone1: "+91 82474 91265",
   phone1Raw: "918247491265",
-  doctorImage: "/dr-roja.png",
   whatsappNumber: "918247491265",
   languages: "Telugu, English & Hindi",
   areasServed: "Kurmannapalem, Duvvada, Ukkunagaram (Steel Plant Township), Gajuwaka, Vadlapudi & Aganampudi",
