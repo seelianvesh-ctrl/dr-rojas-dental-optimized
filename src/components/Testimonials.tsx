@@ -55,7 +55,7 @@ export const Testimonials: React.FC = () => {
 
                 <span className="inline-flex items-center gap-1.5 text-xs font-accent font-semibold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Verified Google Patient</span>
+                  <span>Sourced from Google Reviews</span>
                 </span>
               </div>
 

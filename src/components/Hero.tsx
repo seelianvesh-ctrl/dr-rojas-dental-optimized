@@ -150,9 +150,8 @@ export const Hero: React.FC = () => {
             {/* Main Image Box */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/30 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-[#0C4A6E]">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000"
-                alt="Dr. Roja's Modern Dental Clinic Interior in Kurmannapalem Visakhapatnam"
-                referrerPolicy="no-referrer"
+                src="/clinic-interior.webp"
+                alt="Modern dental operatory with rose-pink dental chair"
                 width={1000}
                 height={1500}
                 fetchPriority="high"

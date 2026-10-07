@@ -1,4 +1,4 @@
-import { ServiceItem, ReviewItem, BeforeAfterItem } from '../types';
+import { ServiceItem, ReviewItem } from '../types';
 
 export const CLINIC_INFO = {
   name: "Dr. Roja's Dental Clinic",
@@ -8,7 +8,7 @@ export const CLINIC_INFO = {
   council: "Andhra Pradesh Dental Council",
   rating: 5.0,
   reviewsCount: 25,
-  address: "Door No: 30, 95-58, Appikonda R.H Colony, Kurmannapalem, Gajuwaka, Visakhapatnam, Andhra Pradesh - 530046",
+  address: "Door no : 30, 95-58, Appikonda R.H Colony, Kurmannapalem, Gajuwaka, Andhra Pradesh 530046",
   landmark: "Duvvada Railway Station Road, Near Kurmannapalem Junction (Opposite HP Petrol Bunk)",
   // Single source of truth for the primary contact number.
   // (Previously duplicated as `phone`/`phoneRaw`, which had drifted out of sync.)
@@ -177,48 +177,5 @@ export const REVIEWS: ReviewItem[] = [
     treatment: "Clear Aligners & Teeth Whitening",
     text: "Best dental clinic in Kurmannapalem. Dr. Roja explained the clear aligners procedure with complete honesty. Speaking Telugu, Hindi and English makes communication effortless for everyone.",
     verified: true
-  }
-];
-
-export const BEFORE_AFTER_ITEMS: BeforeAfterItem[] = [
-  {
-    id: "ba-1",
-    title: "Laser Teeth Whitening",
-    procedure: "Single-session clinical stain removal",
-    description: "45-minute clinical whitening treatment removing deep tea, coffee, and tobacco discoloration for a 6-shade brighter radiant smile.",
-    beforeImg: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "ba-2",
-    title: "Clear Aligner Straightening",
-    procedure: "Discreet orthodontic gap closure",
-    description: "Virtually invisible aligners correcting dental crowding and closing anterior gaps without metal wires in 6 months.",
-    beforeImg: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "ba-3",
-    title: "Dental Implant & Crown",
-    procedure: "Precision titanium implant & zirconia crown",
-    description: "Permanent replacement of broken/missing molar with a bio-compatible implant and natural-looking porcelain crown.",
-    beforeImg: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "ba-4",
-    title: "Painless Root Canal & Crown",
-    procedure: "Single-visit RCT & full coverage crown",
-    description: "Advanced endodontic therapy saving severely decayed tooth without pain, capped with a color-matched ceramic crown.",
-    beforeImg: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "ba-5",
-    title: "Ultrasonic Scaling & Cleaning",
-    procedure: "Tartar removal & tooth enamel polishing",
-    description: "Gentle removal of stubborn calculus and plaque build-up to heal bleeding gums and leave teeth smooth and refreshed.",
-    beforeImg: "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800"
   }
 ];

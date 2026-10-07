@@ -19,15 +19,6 @@ export interface ReviewItem {
   verified: boolean;
 }
 
-export interface BeforeAfterItem {
-  id: string;
-  title: string;
-  procedure: string;
-  description: string;
-  beforeImg: string;
-  afterImg: string;
-}
-
 export interface BookingFormState {
   name: string;
   phone: string;

@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
             
             <p className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-1" />
-              <span>Door No: 30, 95-58, Appikonda R.H Colony, Duvvada Station Rd, Kurmannapalem, Gajuwaka - 530046 (Opp. HP Petrol Bunk)</span>
+              <span>Door no : 30, 95-58, Appikonda R.H Colony, Kurmannapalem, Gajuwaka, Andhra Pradesh 530046 (Opp. HP Petrol Bunk)</span>
             </p>
 
             <p className="flex items-center gap-2.5">
