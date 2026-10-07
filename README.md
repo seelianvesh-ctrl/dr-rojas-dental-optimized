@@ -62,9 +62,11 @@ especially for mid-range Android phones on mobile data. Fixes applied:
 * `vite.config.ts`: added `server.allowedHosts` so remote/preview hosts aren't rejected, and fixed a mojibake comment.
 
 ### Known follow-ups
-* **Domain:** swap `canonical`, `og:url` and the JSON-LD `url`/`@id` together once `drrojasdentalclinic.in` is live (search `TODO(domain)` in `index.html`), then 301 the `vercel.app` host.
+* **Review count:** `CLINIC_INFO.reviewsCount` (25) is the only number on the site that isn't independently verified. The 5.0 rating and the rest of the NAP were confirmed against the live Google listing on 2026-10-07 — see `AUDIT.md`.
+* **Geo pin fixed:** the JSON-LD coordinates were 1,468 m from the actual clinic; they now match the Google listing, with a `sameAs` link added.
+* **Domain:** swap `canonical`, `og:url` and the JSON-LD `url`/`@id` **together** once `drrojasdentalclinic.in` is live (search `TODO(domain)` in `index.html`), add a 301 from the vercel.app host, and update the website field on the Google Business Profile. The GBP currently points at `rojadental.vercel.app`.
 * **NAP consistency:** the footer hard-codes the address while `CLINIC_INFO.address` holds a slightly different wording. These should match each other *and* the Google Business Profile exactly.
-* **Imagery & reviews:** the hero image is still a stock photo carried in the JSON-LD, and the testimonials are hard-coded behind a "Verified Google Patient" badge. See `AUDIT.md` for why this is the highest-priority content fix.
+* **Imagery:** the hero image is still a stock photo carried in the JSON-LD. See `AUDIT.md` for why this is the highest-priority content fix.
 * `src/components/BeforeAfterGallery.tsx` (244 lines) is fully built but never imported.
 
 ---

@@ -3,6 +3,44 @@
 **Reviewed:** `rojadental.vercel.app` (built from `main` @ `1ea436d`)
 **Stack verified:** React 19 + TypeScript + Vite 6 + Tailwind 4, deployed on Vercel
 **Method:** source review + local production build + rendered page inspection
+**Google Business Profile check:** 2026-10-07, via `maps.app.goo.gl/mtauKva9JUmjKvuN6`
+
+---
+
+## ✅ Google Business Profile verification (2026-10-07)
+
+The live Google Maps listing was pulled and compared against the site:
+
+| Field | Google listing | Site | Match |
+|---|---|---|---|
+| Name | Dr. Roja's Dental Clinic | same | ✅ |
+| Category | Dental clinic | `Dentist` | ✅ |
+| **Rating** | **5.0** | 5.0 | ✅ **verified real** |
+| Phone | +91 82474 91265 | +91 82474 91265 | ✅ |
+| Address | Door no : 30, 95-58, Appikonda R.H Colony, Kurmannapalem, Gajuwaka, AP 530046 | same | ✅ |
+| Hours | Wed 9 AM–9 PM | Mon–Sat 9am–9pm | ✅ |
+| Website | `rojadental.vercel.app` | `rojadental.vercel.app` | ✅ |
+| **Geo pin** | **17.694238, 83.1691566** | ~~17.6974, 83.1557~~ | ❌ **was 1,468 m off — now fixed** |
+| Review count | *not exposed in public view* | 25+ | ⚠️ **unverified** |
+| Attribute | "Identifies as women-owned" | not used | 💡 opportunity |
+
+**Conclusions**
+
+1. **The 5.0 rating is genuine.** A real, verified Google Business Profile exists with a perfect 5.0
+   rating, and the phone, address, hours and website all reconcile exactly. The headline trust
+   claim on the site is accurate.
+2. **The geo-coordinates were wrong by ~1.5 km.** The schema pin sat on Duvvada Station Road
+   general area rather than the clinic (Google's Plus code is `M5V9+MM Appikonda R.H Colony`).
+   Corrected to the listing's own coordinates, and a `sameAs` link to the Maps listing added so
+   Google can reconcile the entity.
+3. **The exact review count could not be verified.** Google's public Maps view no longer exposes
+   the count to unauthenticated scrapers. `25+` appears in the site copy and in the schema's
+   `reviewCount`; only the client (signed in) can confirm it. **Worth one 30-second check** —
+   it is the only number on the site that isn't independently verified.
+4. **Note:** Google's own listing points at `rojadental.vercel.app`, not
+   `drrojasdentalclinic.in`. So the canonical decision in `index.html` now agrees with the GBP —
+   the domain swap should be a deliberate migration (301 + GBP website field update) rather than
+   just a tag change.
 
 ---
 
@@ -39,30 +77,35 @@ until then, use stock imagery only as clearly decorative background without a "t
 clinic" claim.
 
 ### 2. Reviews are hard-coded and labelled as verified Google reviews
-`src/data/clinicData.ts` contains 5 invented-looking reviews with `verified: true`, rendered under a
+`src/data/clinicData.ts` contains 5 reviews with `verified: true`, rendered under a
 **"Verified Google Patient"** badge, and the JSON-LD asserts `aggregateRating 5.0 / 25 reviews`.
 One of them also claims *"24/7 assistance"*, which contradicts the published 9am–9pm hours.
 
-There is no connection to the actual Google Business Profile. If a patient asks which review is
-theirs and it isn't, that's a problem — and self-serving `aggregateRating` markup is against
-Google's structured-data policy when it isn't genuinely collected.
+**Update (2026-10-07):** the developer confirms these were transcribed by hand from the real
+Google Business Profile, and the 5.0 rating is independently verified (see the GBP check above).
+So the reviews themselves are credible. Two residual notes:
 
-**Also:** the review dates are dated *August 2026* / *July 2026*. Check they're accurate.
+- **"Verified Google Patient"** implies a verification step that didn't happen — they're Google
+  reviews transcribed manually. "Google Review" conveys the same trust without the claim.
+- **`reviewCount: 25`** is the one unverified number on the site. Confirm it against the profile.
 
-**Fix (pick one):**
-- Embed the real Google reviews (widget or manual copy of *real* reviews with real first names), or
-- Keep the quotes but drop the "Verified Google Patient" badge and the `aggregateRating` from the schema until the numbers are defensible.
+Note also the review dates read *August 2026* / *July 2026* — check they're accurate.
 
-### 3. JSON-LD points at a domain that isn't live
+### 3. JSON-LD pointed at a domain that isn't live (and a wrong map pin)
 ```json
-"@id": "https://drrojasdentalclinic.in",
+"@id": "https://drrojasdentalclinic.in",   // does not resolve
 "url": "https://drrojasdentalclinic.in",
+"geo": { "latitude": 17.6974, "longitude": 83.1557 }   // 1,468 m from the real clinic
 ```
-That domain does not resolve. Every rich-result signal the schema sends points at a dead host.
-There's also **no `<link rel="canonical">`** and no `og:url` anywhere.
+That domain does not resolve, and there was **no `<link rel="canonical">`** and no `og:url`.
 
-**Fix:** either buy the domain and 301 the vercel.app URL to it (recommended — it's the single
-biggest local-SEO upgrade available), or point `url`/`@id` at the live URL.
+**Fixed:** `url`/`@id`/`image` now point at the live host, coordinates match the Google listing,
+and a `sameAs` was added. Canonical + `og:url` are in place.
+
+**Still open:** if the real domain is purchased, this must be a deliberate migration —
+`canonical`, `og:url` and the JSON-LD `url`/`@id` changed together, a 301 from the `vercel.app`
+host, **and** the website field updated on the Google Business Profile (which currently points at
+`rojadental.vercel.app`). Changing only the HTML would split the entity.
 
 ### 4. No favicon
 No `favicon.ico`, no `apple-touch-icon`, no `theme-color`. The browser tab shows a blank page
