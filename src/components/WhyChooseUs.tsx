@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, ShieldAlert, HeartHandshake, MapPin, Sparkles, Award } from 'lucide-react';
+import { Star, ShieldAlert, HeartHandshake, MapPin, Award } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const WhyChooseUs: React.FC = () => {

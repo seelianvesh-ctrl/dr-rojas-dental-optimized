@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Phone, Clock, MapPin, Sparkles, CheckCircle, ShieldCheck } from 'lucide-react';
+import { MessageCircle, Phone, Clock, MapPin, Sparkles, CheckCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const BookingSection: React.FC = () => {

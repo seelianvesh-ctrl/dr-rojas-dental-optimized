@@ -1,7 +1,7 @@
 import React from 'react';
-import { Award, CheckCircle, Heart, Star, Sparkles, UserCheck } from 'lucide-react';
+import { Award, Star, Sparkles, UserCheck } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
-import drRojaImg from '../assets/dr-roja.png';
+import drRojaImg from '../assets/dr-roja.webp';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -28,6 +28,10 @@ export const AboutSection: React.FC = () => {
               <img
                 src={drRojaImg}
                 alt="Dr. Yenneti Roja BDS - Lead Dental Surgeon in Kurmannapalem Visakhapatnam"
+                width={1000}
+                height={1500}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[450px] sm:h-[520px] object-cover object-top hover:scale-105 transition-transform duration-700"
               />
               

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Keep crawlers on the real host so ranking signals consolidate
+# (see the canonical tag in index.html).
+Sitemap: https://rojadental.vercel.app/sitemap.xml

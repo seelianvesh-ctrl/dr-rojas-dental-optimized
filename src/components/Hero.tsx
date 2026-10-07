@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, ShieldCheck, ArrowRight, Phone, MessageCircle, Sparkles, MapPin, AlertCircle } from 'lucide-react';
+import { Star, ShieldCheck, Phone, MessageCircle, Sparkles, MapPin, AlertCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const Hero: React.FC = () => {
@@ -150,6 +150,10 @@ export const Hero: React.FC = () => {
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000"
                 alt="Dr. Roja's Modern Dental Clinic Interior in Kurmannapalem Visakhapatnam"
                 referrerPolicy="no-referrer"
+                width={1000}
+                height={1500}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-[380px] sm:h-[460px] object-cover object-center"
               />
               

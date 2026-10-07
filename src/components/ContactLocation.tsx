@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, CreditCard, ExternalLink, Navigation, CheckCircle2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Clock, CreditCard, Navigation, CheckCircle2, MessageCircle } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 
 export const ContactLocation: React.FC = () => {

@@ -31,6 +31,44 @@ Built with **React 19 + TypeScript + Vite + Tailwind CSS + Lucide Icons**, optim
 
 ---
 
+## ⚡ Performance & Technical SEO Pass
+
+A follow-up audit of the deployed site found the *design* was fine but the *delivery* wasn't —
+especially for mid-range Android phones on mobile data. Fixes applied:
+
+### Page weight: first visit ~2.7 MB → ~500 KB
+| Asset | Before | After | Rendered at |
+|---|---:|---:|---|
+| `dr-roja.png` → `.webp` | 1.82 MB | **73.5 KB** | 450–520 px tall |
+| `logo.png` → `.webp` | 391 KB | **10.9 KB** | 40–48 px tall |
+| `dist/` total | 4.3 MB | **560 KB** | — |
+
+* `public/dr-roja.png` and `src/assets/dr-roja.png` were byte-identical duplicates shipping twice. The `public/` copy (1.82 MB of dead weight) is gone.
+* Added `width`/`height` to every `<img>` (kills the layout shift), `loading="lazy"` + `decoding="async"` below the fold, and `fetchPriority="high"` on the hero.
+* Added `preconnect`/`dns-prefetch` for `images.unsplash.com`.
+* Trimmed the Google Fonts request (dropped unused DM Sans weights 300/800 and the unused DM Sans italics).
+
+### Missing production plumbing
+* **Favicon + apple-touch-icon + `theme-color`** — generated from the clinic's tooth mark (16/32/48 multi-size `.ico`). The site previously had no favicon at all.
+* **`robots.txt` + `sitemap.xml`** — `/robots.txt` previously returned a Vercel 404.
+* **`canonical` + `og:url` + Twitter card** — none existed. Static social previews now use a real 1200×630 card (`og-image.webp`, 39 KB) instead of a stock photo at a generic URL.
+* **Fixed the JSON-LD `url`/`@id`**, which pointed at `drrojasdentalclinic.in` — a domain that does not resolve. Rich-result signals now point at the live host.
+
+### Code hygiene
+* `npm run lint` was **failing**: `tsconfig.json` lacked `"types": ["vite/client"]`, so the PNG import in `AboutSection.tsx` didn't type-check. Fixed; `tsc --noEmit` is now clean, including with `--noUnusedLocals`.
+* Removed 10 unused `lucide-react` imports across 7 components.
+* Removed the duplicate contact-number fields (`phone`/`phoneRaw`) that had drifted out of sync with `phone1`/`phone1Raw`.
+* Deleted AI Studio scaffolding: `metadata.json`, `.env.example`, and the unused `@google/genai`, `express`, `dotenv`, `motion` dependencies (none were referenced anywhere in `src/`). `node_modules` dropped from ~150 to 91 packages.
+* `vite.config.ts`: added `server.allowedHosts` so remote/preview hosts aren't rejected, and fixed a mojibake comment.
+
+### Known follow-ups
+* **Domain:** swap `canonical`, `og:url` and the JSON-LD `url`/`@id` together once `drrojasdentalclinic.in` is live (search `TODO(domain)` in `index.html`), then 301 the `vercel.app` host.
+* **NAP consistency:** the footer hard-codes the address while `CLINIC_INFO.address` holds a slightly different wording. These should match each other *and* the Google Business Profile exactly.
+* **Imagery & reviews:** the hero image is still a stock photo carried in the JSON-LD, and the testimonials are hard-coded behind a "Verified Google Patient" badge. See `AUDIT.md` for why this is the highest-priority content fix.
+* `src/components/BeforeAfterGallery.tsx` (244 lines) is fully built but never imported.
+
+---
+
 ## 🛠️ Tech Stack
 * **Framework:** React 19 + TypeScript
 * **Bundler & Dev Server:** Vite 6
