@@ -1,5 +1,3 @@
-import { GA4_MEASUREMENT_ID } from '../config';
-
 declare global {
   interface Window {
     dataLayer: unknown[];
@@ -7,24 +5,15 @@ declare global {
   }
 }
 
-/** Load gtag.js and initialise GA4.  Skipped in dev. */
-export function initAnalytics(): void {
-  if (!GA4_MEASUREMENT_ID || import.meta.env.DEV) return;
+/**
+ * The GA4 / Google tag itself is injected into the built `index.html` <head> by
+ * the `inject-ga4-snippet` plugin in vite.config.ts, and the measurement ID is
+ * configured in src/config.ts. This module only sends events to it — it
+ * deliberately does not create the tag, so there is exactly one initialisation
+ * path and no chance of double-counting page views.
+ */
 
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function (...args: unknown[]) {
-    window.dataLayer.push(args);
-  };
-  window.gtag('js', new Date());
-  window.gtag('config', GA4_MEASUREMENT_ID);
-}
-
-/** Fire a GA4 event.  No-op when gtag hasn't loaded. */
+/** Fire a GA4 event.  No-op when gtag hasn't loaded (dev, or blocked by the client). */
 export function trackEvent(
   eventName: string,
   params?: Record<string, string | number | boolean>,
