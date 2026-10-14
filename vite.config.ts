@@ -22,6 +22,25 @@ import {GA4_MEASUREMENT_ID} from './src/config';
  * never reaches the GA4 property. Because gtag is then absent in dev,
  * `trackEvent()` in src/lib/analytics.ts naturally no-ops there — the same
  * behaviour the old `import.meta.env.DEV` guard provided.
+ *
+ * ⚠️ DO NOT "MODERNISE" `dataLayer.push(arguments)`.
+ *
+ * gtag.js only executes dataLayer entries that are native Arguments objects.
+ * Its boot scan tests:
+ *
+ *     Object.prototype.toString.call(a) === "[object Arguments]"
+ *
+ * An earlier revision of this site wrote the shim as
+ * `window.gtag = (...args) => dataLayer.push(args)`. A rest parameter is a real
+ * Array, not an Arguments object, so gtag.js silently ignored every command:
+ * the script loaded, `dataLayer` filled up with js/config/event, and NO
+ * /g/collect hit was ever sent. GA4 reported "No data received" on every
+ * device and browser for a week, while every DOM-level check said the tag was
+ * installed correctly. Nothing about it was visible without watching the
+ * network for a collect request.
+ *
+ * Keep the snippet byte-for-byte identical to Google's documented example:
+ * https://developers.google.com/tag-platform/gtagjs/install
  */
 function injectGa4Snippet(): Plugin {
   return {
